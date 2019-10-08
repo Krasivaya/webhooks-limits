@@ -30,3 +30,17 @@ def convert_dates(dates):
     #Return days
     day = days[day_number]
     return day
+
+#Passt days News View
+def past_days_news(request, past_date):
+        #convert data from url
+        date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
+    day = convert_dates(date)
+    hrml = f'''
+        <html>
+            <body>
+                <h1>News for {day} {date.day}-{date.month}-{date.year}</h1>
+            </body>
+        </html>
+            '''
+    return HttpResponse(html)
