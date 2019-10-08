@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 
 # Editor model
 class Editor(models.Model):
@@ -8,8 +9,12 @@ class Editor(models.Model):
 
     def __str__(self):
         return self.first_name
-    try:
-        editor = Editor.objects.get(email = 'example@gmail.com')
-        print('Editor Found')
-    except DoesNotExist:
-        print('Editor was not found')
+    class Meta:
+        ordering = ['first_name']
+
+#Tag model
+class tags(model.Module):
+    name = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.name
