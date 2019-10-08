@@ -11,5 +11,5 @@ class Editor(models.Model):
     try:
         editor = Editor.objects.get(email = 'example@gmail.com')
         print('Editor Found')
-    except DoestNotExist:
+    except DoesNotExist:
         print('Editor was not found')
