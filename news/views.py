@@ -9,17 +9,7 @@ def welcome(request):
 #News view for particular day
 def news_of_day(request):
     date = dt.date.today()
-
-    #Function to convert date number to exact day name
-    day = convert_dates(date)
-    html = f'''
-        <html>
-            <body>
-                <h1> News for {day} {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
+    return render(request,'all-news/today-news.html', {"date":date,})
 
 #Passt days News View
 def past_days_news(request, past_date):
