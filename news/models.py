@@ -13,7 +13,7 @@ class Editor(models.Model):
         ordering = ['first_name']
 
 #Tag model
-class tags(model.Module):
+class tags(models.Module):
     name = models.CharField(max_length = 30)
 
     def __str__(self):
