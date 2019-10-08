@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.exceptions import ObjectDoesNotExist
 
 # Editor model
 class Editor(models.Model):
@@ -13,7 +12,7 @@ class Editor(models.Model):
         ordering = ['first_name']
 
 #Tag model
-class tags(models.Module):
+class tags(models.Model):
     name = models.CharField(max_length = 30)
 
     def __str__(self):
