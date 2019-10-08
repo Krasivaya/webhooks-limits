@@ -1,9 +1,10 @@
+from django.shortcuts import render
 from django.http import HttpResponse, Http404
 import datetime as dt
 
 # News View
 def welcome(request):
-    return HttpResponse('Welcome To The Moringa Tribune')
+    return render(request, 'welcome.html')
 
 #News view for particular day
 def news_of_day(request):
