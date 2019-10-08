@@ -8,3 +8,8 @@ class Editor(models.Model):
 
     def __str__(self):
         return self.first_name
+    try:
+        editor = Editor.objects.get(email = 'example@gmail.com')
+        print('Editor Found')
+    except DoestNotExist:
+        print('Editor was not found')
