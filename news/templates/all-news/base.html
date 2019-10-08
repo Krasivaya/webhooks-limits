@@ -8,6 +8,10 @@
         {% else %}
         <title>Moringa Tribune</title>
         {% endif %}
+
+        {% block style %}
+            {% bootstrap_css %}
+        {% endblock %}
     </head>
     <body>
         {% block content %}
