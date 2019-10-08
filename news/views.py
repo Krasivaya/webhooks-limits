@@ -40,7 +40,7 @@ def past_days_news(request, past_date):
         #raise 404 error when valueError is thrown
         raise Http404()
     day = convert_dates(date)
-    hrml = f'''
+    html = f'''
         <html>
             <body>
                 <h1>News for {day} {date.day}-{date.month}-{date.year}</h1>
