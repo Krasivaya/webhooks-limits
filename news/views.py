@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+# News View
+def welcome(request):
+    return HttpResponse('Welcome To The Moringa Tribune')
