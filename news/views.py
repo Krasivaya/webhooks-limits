@@ -5,7 +5,7 @@ from .models import Article
 
 
 #News view for particular day
-def news_of_day(request):
+def news_today(request):
     date = dt.date.today()
     news = Article.today_news()
     return render(request,'all-news/today-news.html', {"date":date,"news":news})
@@ -21,6 +21,7 @@ def past_days_news(request, past_date):
         assert False
     
     if date == dt.date.today():
-        return redirect(news_of_day)
+        return redirect(news_today)
 
-    return render(request, 'all-news/past-news.html',{"date":date})
+    news = Article.days_news(date)
+    return render(request, 'all-news/past-news.html',{"date":date, "news":news})
