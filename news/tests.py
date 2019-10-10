@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Editor, Article, tags
+import datetime as dt
 
 # Editor test
 class EditorTestClass(TestCase):
@@ -40,3 +41,15 @@ class ArticleTestClass(TestCase):
         Editor.objects.all().delete()
         tags.objects.all().delete()
         Article.objects.all().delete()
+
+    #Test for todays news
+    def test_get_news_today(self):
+        today_news = Article.todays_news()
+        self.assertTrue(len(today_news)>0)
+
+    #Test get news by time
+    def test_get_news_by_date(self):
+        test_date = '2017-03-17'
+        date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
+        news_by_date = Article.day_news(date)
+        self.assertTrue(len(news_by_date) == 0)
