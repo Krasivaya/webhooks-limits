@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 import datetime as dt
+from .models import Article
 
 
 #News view for particular day
 def news_of_day(request):
     date = dt.date.today()
-    return render(request,'all-news/today-news.html', {"date":date,})
+    news = Article.today_news()
+    return render(request,'all-news/today-news.html', {"date":date,"news":news})
 
 #Passt days News View
 def past_days_news(request, past_date):
