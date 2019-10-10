@@ -1,4 +1,4 @@
-#!/home/wecode/Documents/moringa/core/django/week1/The-Moringa-Tribune/virtual/bin/python
+#!/home/carine/moringa/core/django/week1/The-Moringa-Tribune/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
