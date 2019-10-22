@@ -5,6 +5,7 @@ from .models import Article, NewsLetterRecipients
 from .forms import NewArticleForm, NewsLetterForm
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 
 #News view for particular day
 #Form view
