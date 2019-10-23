@@ -29,6 +29,13 @@ def newsletter(request):
     data = {'success': 'You have been successfully added to mailing list'}
     return JsonResponse(data)
 
+#API view to handle request
+class MerchList(APIView):
+    def get(self, request, format=None):
+        all_merch = MoringaMerch.objects.all()
+        serializers = MerchSerializer(all_merch, many=True)
+        return Response(serializers.data)
+
 #Passt days News View
 def past_days_news(request, past_date):
     try:
