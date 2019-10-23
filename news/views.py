@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 from .models import  MoringaMerch
 from .serializer import MerchSerializer
 from rest_framework import status
+from .permissions import IsAdminOrReadOnly
 
 
 #News view for particular day
@@ -39,6 +40,7 @@ class MerchList(APIView):
         serializers = MerchSerializer(all_merch, many=True)
         return Response(serializers.data)
 
+    permission_classes = (IsAdminOrReadOnly,)
     #Post Request
     def post(self, request, format=None):
         serializers = MerchSerializer(data=request.data)
