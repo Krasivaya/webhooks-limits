@@ -25,6 +25,12 @@ class profile(models.Model):
     phone_number = models.CharField(max_length = 10, blank = True)
     bio = models.CharField(max_length = 255,blank=True)
 
+#Products model
+class MoringaMerch(models.Model):
+    name = models.CharField(max_length=40)
+    description = models.TextField()
+    price = models.DecimalField(decimal_places=2, max_digits=20)
+
 #Tag model
 class tags(models.Model):
     name = models.CharField(max_length = 30)
