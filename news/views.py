@@ -73,6 +73,12 @@ class MerchDescription(APIView):
         else:
             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    #DELETE Request
+    def delete(self, request, pk, format=None):
+        merch = self.get_merch(pk)
+        merch.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 #Passt days News View
 def past_days_news(request, past_date):
     try:
